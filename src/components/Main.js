@@ -28,7 +28,6 @@ export default function Main(props) {
     return (
         <div className={"cards-container"}>
             {cards}
-            <h1>{cardsArray[1].imageURL}</h1>
         </div>
     )
 }
