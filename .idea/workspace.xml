@@ -3,6 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="46055aa7-c1b8-4441-b224-765d6f5f86b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +42,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/mclilzee/Repo/memory-card/public",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_interpreter_path": "node",
@@ -38,6 +51,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/images" />
     </key>
@@ -65,11 +81,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652286915504</updated>
-      <workItem from="1652286916809" duration="3304000" />
+      <workItem from="1652286916809" duration="4705000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

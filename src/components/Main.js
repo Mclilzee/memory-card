@@ -1,5 +1,6 @@
 import React from "react";
 import {shuffle} from "lodash"
+import Card from "./Card"
 
 export default function Main(props) {
 
@@ -9,7 +10,7 @@ export default function Main(props) {
         const images = []
         for (let i = 1; i <= 10; i++) {
             images.push({
-                imageURL: `../assets/images/${i}.jpg`,
+                imageURL: `images/${i}.jpg`,
                 isSelected: false
             })
         }
@@ -17,11 +18,17 @@ export default function Main(props) {
         return shuffle(images);
     }
 
-    const cards = cardsArray.map(card => <h2>{card.imageURL}</h2>)
+    const cards = cardsArray.map((item, itemIndex) => {
+        return <Card key={itemIndex}
+                     index={itemIndex}
+                     imageURL={item.imageURL}
+        />
+    });
 
     return (
         <div className={"cards-container"}>
-
+            {cards}
+            <h1>{cardsArray[1].imageURL}</h1>
         </div>
     )
 }

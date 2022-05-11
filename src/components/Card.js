@@ -7,6 +7,7 @@ export default function Card(props) {
     }
 
     return (
-        <img onClick={handleClick} src={props.imageURL} alt={"image of a cat"}/>
+        // eslint-disable-next-line jsx-a11y/img-redundant-alt
+        <img className={"card"} onClick={handleClick} src={props.imageURL} alt={"image of a cat"}/>
     )
 }
