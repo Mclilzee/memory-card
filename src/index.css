@@ -1,8 +1,9 @@
 body {
     height: 100vh;
+    padding: 10px;
     background: radial-gradient(mediumpurple, purple);
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family: "Roboto", o-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -19,20 +20,50 @@ code {
     grid-template-columns: repeat(5, minmax(60px, 150px));
     gap: 20px;
     justify-content: center;
+
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
+    background-color: rgba(128, 128, 128, 0.42);
+    box-shadow: 2px 0 10px 1px #000000;
+    max-width: 80%;
+    margin: 0 auto 10px;
+
 }
 
 .header > h1 {
+    font-size: min(2rem, 5vw);
+    font-family: Tapestry, serif;
+    color: white;
+    font-weight: bold;
     margin: 0;
 }
 
-.card > img {
-    width: 100%;
-    border-radius: 10px;
-    border: orange 2px inset;
-    aspect-ratio: 150 / 200;
+.header > h4 {
+    font-size: min(1rem, 3vw);
+    margin: 0;
+    color: #ffffff;
+
 }
 
+.card > img {
+    transition: transform 0.2s;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    border: orange 5px inset;
+    aspect-ratio: 150 / 200;
+    box-shadow: 2px 2px 5px #000000;
+}
+
+.card > img:hover {
+    transform: scale(110%)
+}
 
 @media (max-width: 600px) {
     .cards-container {
