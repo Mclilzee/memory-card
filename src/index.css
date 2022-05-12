@@ -15,14 +15,6 @@ code {
     monospace;
 }
 
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(60px, 150px));
-    gap: 20px;
-    justify-content: center;
-
-}
-
 .header {
     display: flex;
     flex-direction: column;
@@ -61,13 +53,22 @@ code {
 
 .score,
 .high-score {
-    font-size: 1.5rem;
+    font-size: min(1.5rem, 5vw);
     font-weight: bold;
     color: sandybrown;
 }
 
 .new-high {
     color: greenyellow;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(60px, 150px));
+    gap: 20px;
+    justify-content: center;
+    transform: translateX(-6px);
+
 }
 
 .card > img {
