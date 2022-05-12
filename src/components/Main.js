@@ -5,6 +5,10 @@ import Card from "./Card"
 export default function Main(props) {
 
     const [cardsArray, setCardsArray] = React.useState(imagesArray);
+    const [currentScore, setCurrentStore] = React.useState(0);
+    const [highScore, setCurrentHighStore] = React.useState(() => {
+        return JSON.parse(localStorage.getItem("highScore")) || 0
+    })
 
     function imagesArray() {
         const images = []
@@ -26,8 +30,14 @@ export default function Main(props) {
     });
 
     return (
-        <div className={"cards-container"}>
-            {cards}
+        <div className={"game-window"}>
+            <div className={"score-container"}>
+                <div className={"score"}>Score: {currentScore}</div>
+                <div className={"high-score"}>High-score: {highScore}</div>
+            </div>
+            <div className={"cards-container"}>
+                {cards}
+            </div>
         </div>
     )
 }
