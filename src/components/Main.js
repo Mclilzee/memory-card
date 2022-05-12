@@ -9,6 +9,7 @@ export default function Main(props) {
     const [highScore, setHighScore] = React.useState(() => {
         return Number(localStorage.getItem("highScore")) || 0
     })
+    const [newHigh, setNewHigh] = React.useState(false);
 
     React.useEffect(() => {
         localStorage.setItem("highScore", highScore + "");
@@ -18,8 +19,9 @@ export default function Main(props) {
         checkIfGameWon()
         if (currentScore > highScore) {
             setHighScore(currentScore)
+            setNewHigh(true);
         }
-    })
+    }, [checkIfGameWon, currentScore, highScore])
 
     function imagesArray() {
         const images = []
@@ -92,7 +94,7 @@ export default function Main(props) {
     return (
         <div className={"game-window"}>
             <div className={"score-container"}>
-                <div className={"score"}>Score: {currentScore}</div>
+                <div className={`score ${newHigh ? "new-high" : ""}`}>Score: {currentScore}</div>
                 <div className={"high-score"}>High-score: {highScore}</div>
             </div>
             <div className={"cards-container"}>
