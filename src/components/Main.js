@@ -16,12 +16,22 @@ export default function Main(props) {
     }, [highScore])
 
     React.useEffect(() => {
+
         checkIfGameWon()
         if (currentScore > highScore) {
             setHighScore(currentScore)
             setNewHigh(true);
         }
-    }, [checkIfGameWon, currentScore, highScore])
+
+        function checkIfGameWon() {
+            const isWon = cardsArray.every(card => card.isSelected);
+
+            if (isWon) {
+                softResetCards();
+            }
+        }
+
+    }, [cardsArray, currentScore, highScore])
 
     function imagesArray() {
         const images = []
@@ -50,6 +60,7 @@ export default function Main(props) {
             const resetArray = prevArray.map(card => ({...card, isSelected: false}))
             return shuffle(resetArray)
         });
+        setNewHigh(false);
     }
 
     function scoreAPoint(index) {
@@ -66,14 +77,6 @@ export default function Main(props) {
         setCurrentScore(prevScore => prevScore + 1)
     }
 
-    function checkIfGameWon() {
-        const isWon = cardsArray.every(card => card.isSelected);
-
-        if (isWon) {
-            softResetCards();
-        }
-    }
-
     function softResetCards() {
         setCardsArray(prevArray => {
             const unshuffledArray = prevArray.map(card => ({...card, isSelected: false}));
@@ -87,7 +90,6 @@ export default function Main(props) {
                      index={itemIndex}
                      imageURL={item.imageURL}
                      onClick={handleClick}
-                     isSelected={item.isSelected}
         />
     });
 
