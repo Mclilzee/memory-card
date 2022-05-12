@@ -5,9 +5,20 @@ import Card from "./Card"
 export default function Main(props) {
 
     const [cardsArray, setCardsArray] = React.useState(imagesArray);
-    const [currentScore, setCurrentStore] = React.useState(0);
-    const [highScore, setCurrentHighStore] = React.useState(() => {
-        return JSON.parse(localStorage.getItem("highScore")) || 0
+    const [currentScore, setCurrentScore] = React.useState(0);
+    const [highScore, setHighScore] = React.useState(() => {
+        return Number(localStorage.getItem("highScore")) || 0
+    })
+
+    React.useEffect(() => {
+        localStorage.setItem("highScore", highScore + "");
+    }, [highScore])
+
+    React.useEffect(() => {
+        checkIfGameWon()
+        if (currentScore > highScore) {
+            setHighScore(currentScore)
+        }
     })
 
     function imagesArray() {
@@ -22,10 +33,59 @@ export default function Main(props) {
         return shuffle(images);
     }
 
+    function handleClick(index) {
+        if (cardsArray[index].isSelected) {
+            resetGame()
+        } else {
+            scoreAPoint(index)
+        }
+
+    }
+
+    function resetGame() {
+        setCurrentScore(0)
+        setCardsArray(prevArray => {
+            const resetArray = prevArray.map(card => ({...card, isSelected: false}))
+            return shuffle(resetArray)
+        });
+    }
+
+    function scoreAPoint(index) {
+        setCardsArray(prevArray => {
+            const unshuffledArray = prevArray.map((card, cardIndex) => {
+                return cardIndex === index ?
+                    {...card, isSelected: true} :
+                    card
+            })
+
+            return shuffle(unshuffledArray);
+        })
+
+        setCurrentScore(prevScore => prevScore + 1)
+    }
+
+    function checkIfGameWon() {
+        const isWon = cardsArray.every(card => card.isSelected);
+
+        if (isWon) {
+            softResetCards();
+        }
+    }
+
+    function softResetCards() {
+        setCardsArray(prevArray => {
+            const unshuffledArray = prevArray.map(card => ({...card, isSelected: false}));
+            return shuffle(unshuffledArray);
+        })
+    }
+
+
     const cards = cardsArray.map((item, itemIndex) => {
         return <Card key={itemIndex}
                      index={itemIndex}
                      imageURL={item.imageURL}
+                     onClick={handleClick}
+                     isSelected={item.isSelected}
         />
     });
 
