@@ -38,20 +38,30 @@ export default function Main(props) {
         for (let i = 1; i <= 10; i++) {
             images.push({
                 imageURL: `images/${i}.jpg`,
-                isSelected: false
+                isSelected: false,
+                id: i + ""
             })
         }
 
         return shuffle(images);
     }
 
-    function handleClick(index) {
-        if (cardsArray[index].isSelected) {
+    function handleClick(id) {
+        if (isCardSelected(id)) {
             resetGame()
         } else {
-            scoreAPoint(index)
+            scoreAPoint(id)
         }
 
+    }
+
+    function isCardSelected(id) {
+        for (let card of cardsArray) {
+            if (card.id === id) {
+                return card.isSelected;
+            }
+        }
+        throw Error;
     }
 
     function resetGame() {
@@ -63,10 +73,10 @@ export default function Main(props) {
         setNewHigh(false);
     }
 
-    function scoreAPoint(index) {
+    function scoreAPoint(id) {
         setCardsArray(prevArray => {
-            const unshuffledArray = prevArray.map((card, cardIndex) => {
-                return cardIndex === index ?
+            const unshuffledArray = prevArray.map(card => {
+                return card.id === id ?
                     {...card, isSelected: true} :
                     card
             })
@@ -85,9 +95,9 @@ export default function Main(props) {
     }
 
 
-    const cards = cardsArray.map((item, itemIndex) => {
-        return <Card key={itemIndex}
-                     index={itemIndex}
+    const cards = cardsArray.map(item => {
+        return <Card key={item.id}
+                     id={item.id}
                      imageURL={item.imageURL}
                      onClick={handleClick}
         />
