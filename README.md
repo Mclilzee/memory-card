@@ -1,4 +1,18 @@
+# <a href="https://mclilzee.github.io/memory-card">Memory Card Game</a>
+A game to test your memory, you start by clicking the title above to be directed to the website, where you will start the game.
+The game is simple, you are not supposed to click on the same image twice, if you do you will lose, your score will be saved and you will be shown the highest score.
 
+There are 10 images, clicking on all of them will refresh the game by keeping your score, so you can repeat the process. You can simply click on the same image again as long as you already clicked on all 10 images, so the game can keep looping where you will be able to get higher and higher scores.
+
+The game difficulty is harder than usual because cat pictures were chosen, and we all know how hard it is not to look and admire cat pictures. Which will most likely mess up with your memory, its for this purpose cat pictures were chosen.
+
+# Examples
+
+### Clicking Images to score
+<img src="./examples/clicking-images.gif" />
+
+### Keeping high score after losing
+<img src="./examples/high-score.gif" />
 
 # Credit
 ### Cat images
